@@ -38,88 +38,106 @@ export const Home = () => {
     }
   };
 
+  const showHero = activeSection === "home";
+
   return (
     <div className="home-page">
-      <header className="hero-section" id="inicio">
-        <nav className="nav">
-          <div className="brand">Sin Rumbo Fijo</div>
+      <nav className="nav">
+        <div className="brand">Sin Rumbo Fijo</div>
 
+        <button
+          className={`nav-toggle ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Abrir menú"
+        >
+          <span />
+          <span />
+        </button>
+
+        <div className={`nav-links ${menuOpen ? "open" : ""}`}>
           <button
-            className={`nav-toggle ${menuOpen ? "open" : ""}`}
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Abrir menú"
+            className={`nav-link-btn ${activeSection === "home" ? "active" : ""}`}
+            onClick={() => handleNavClick("home")}
           >
-            <span />
-            <span />
+            Inicio
           </button>
-
-          <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-            <button className="nav-link-btn" onClick={() => handleNavClick("home")}>
-              Inicio
-            </button>
-            <button className="nav-link-btn" onClick={() => handleNavClick("musica")}>
-              Música
-            </button>
-            <button className="nav-link-btn" onClick={() => handleNavClick("gira")}>
-              Gira
-            </button>
-            <button className="nav-link-btn" onClick={() => handleNavClick("noticias")}>
-              Noticias
-            </button>
-            <button
-              className="ticket-button mobile"
-              onClick={() => handleNavClick("entradas")}
-            >
-              Entradas
-            </button>
-          </div>
-
           <button
-            className="ticket-button desktop"
+            className={`nav-link-btn ${activeSection === "musica" ? "active" : ""}`}
+            onClick={() => handleNavClick("musica")}
+          >
+            Música
+          </button>
+          <button
+            className={`nav-link-btn ${activeSection === "gira" ? "active" : ""}`}
+            onClick={() => handleNavClick("gira")}
+          >
+            Gira
+          </button>
+          <button
+            className={`nav-link-btn ${activeSection === "noticias" ? "active" : ""}`}
+            onClick={() => handleNavClick("noticias")}
+          >
+            Noticias
+          </button>
+          <button
+            className="ticket-button mobile"
             onClick={() => handleNavClick("entradas")}
           >
             Entradas
           </button>
-        </nav>
+        </div>
 
-        <div className="carousel">
-          <div className="carousel-track">
-            {heroImages.map((src, index) => (
+        <button
+          className="ticket-button desktop"
+          onClick={() => handleNavClick("entradas")}
+        >
+          Entradas
+        </button>
+      </nav>
+
+      {showHero && (
+        <header className="hero-section" id="inicio">
+          <div className="carousel">
+            <div className="carousel-track">
+              {heroImages.map((src, index) => (
+                <div
+                  key={src + index}
+                  className="carousel-slide"
+                  style={{ backgroundImage: `url(${src})` }}
+                />
+              ))}
+              {/* Duplicate first slide for seamless loop */}
               <div
-                key={src + index}
                 className="carousel-slide"
-                style={{ backgroundImage: `url(${src})` }}
+                style={{ backgroundImage: `url(${heroImages[0]})` }}
               />
-            ))}
-            {/* Duplicate first slide for seamless loop */}
-            <div
-              className="carousel-slide"
-              style={{ backgroundImage: `url(${heroImages[0]})` }}
-            />
-          </div>
-          <div className="carousel-overlay" />
-          <div className="hero-copy">
-            <p className="eyebrow">Nuevo Álbum · 2026</p>
-            <h1>
-              Ruido, luces y piel de gallina. <span>Bienvenido al show.</span>
-            </h1>
-            <p className="lede">
-              Vibramos en rojo neón: guitarras encendidas, bajos densos y voces
-              que queman. Descubre el pulso eléctrico de la banda.
-            </p>
-            <div className="hero-actions">
-              <a className="btn primary" href="#musica">
-                Escuchar ahora
-              </a>
-              <a className="btn ghost" href="#gira">
-                Ver fechas
-              </a>
+            </div>
+            <div className="carousel-overlay" />
+            <div className="hero-copy">
+              <p className="eyebrow">Nuevo Álbum · 2026</p>
+              <h1>
+                Ruido, luces y piel de gallina. <span>Bienvenido al show.</span>
+              </h1>
+              <p className="lede">
+                Vibramos en rojo neón: guitarras encendidas, bajos densos y voces
+                que queman. Descubre el pulso eléctrico de la banda.
+              </p>
+              <div className="hero-actions">
+                <a className="btn primary" href="#musica">
+                  Escuchar ahora
+                </a>
+                <a className="btn ghost" href="#gira">
+                  Ver fechas
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
+      )}
 
-      {renderActiveContent()}
+      <main className={`page-content ${showHero ? "" : "with-padding"}`}>
+        {renderActiveContent()}
+      </main>
     </div>
   );
 };

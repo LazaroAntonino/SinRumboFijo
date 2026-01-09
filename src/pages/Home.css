@@ -144,6 +144,12 @@ a {
 	transform: scaleX(1);
 }
 
+.nav-link-btn.active,
+.nav-link-btn.active::after {
+	color: var(--white);
+	transform: scaleX(1);
+}
+
 .ticket-button {
 	padding: 0.65rem 1rem;
 	border-radius: 8px;
@@ -166,6 +172,14 @@ a {
 
 .ticket-button:hover {
 	filter: brightness(1.08);
+}
+
+.page-content {
+	width: 100%;
+}
+
+.page-content.with-padding {
+	padding-top: 6rem;
 }
 
 .carousel {
