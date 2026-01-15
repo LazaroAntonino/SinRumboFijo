@@ -5,28 +5,46 @@
 .entradas-panel {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .entradas-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 1rem 1.25rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  background: rgba(255, 140, 66, 0.03);
+  border: 1px solid rgba(255, 140, 66, 0.15);
+  border-radius: 10px;
+  padding: 1.5rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+.entradas-card:hover {
+  border-color: rgba(255, 140, 66, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45), 0 0 25px rgba(255, 140, 66, 0.1);
+  transform: translateY(-5px);
 }
 
 .entradas-card h3 {
-  margin: 0 0 0.35rem;
+  font-family: var(--font-heading);
+  margin: 0 0 0.5rem;
+  color: var(--neon-orange);
+  text-shadow: 0 0 10px rgba(255, 140, 66, 0.8), 0 0 20px rgba(255, 140, 66, 0.6), 0 0 30px rgba(255, 140, 66, 0.4);
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .entradas-card p {
-  margin: 0 0 0.85rem;
+  margin: 0 0 1rem;
   color: var(--muted);
 }
 
 .entradas-card.highlight {
-  background: linear-gradient(145deg, rgba(255, 95, 31, 0.1), rgba(10, 12, 20, 0.9));
-  border-color: rgba(255, 95, 31, 0.5);
-  box-shadow: 0 20px 40px rgba(255, 95, 31, 0.18);
+  background: linear-gradient(145deg, rgba(255, 140, 66, 0.1), rgba(10, 10, 12, 0.95));
+  border-color: var(--neon-orange);
+  box-shadow: 0 0 20px rgba(255, 140, 66, 0.3), 0 0 40px rgba(255, 140, 66, 0.15), 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.entradas-card.highlight h3 {
+  text-shadow: 0 0 10px rgba(255, 140, 66, 1), 0 0 20px rgba(255, 140, 66, 0.8), 0 0 40px rgba(255, 140, 66, 0.6), 0 0 60px rgba(255, 140, 66, 0.4);
 }

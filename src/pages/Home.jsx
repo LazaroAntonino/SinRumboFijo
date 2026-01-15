@@ -5,8 +5,10 @@ import { MusicSection } from "../components/sections/MusicSection";
 import { GiraSection } from "../components/sections/GiraSection";
 import { NewsSection } from "../components/sections/NewsSection";
 import { EntradasSection } from "../components/sections/EntradasSection";
+import { Footer } from "../components/Footer";
 
 const heroImages = [
+  "/images/banda-srf.png",
   "https://images.unsplash.com/photo-1507878866276-a947ef722fee?auto=format&fit=crop&w=1600&q=80",
   "https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=1600&q=80",
   "https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?auto=format&fit=crop&w=1600&q=80",
@@ -102,13 +104,13 @@ export const Home = () => {
               {heroImages.map((src, index) => (
                 <div
                   key={src + index}
-                  className="carousel-slide"
+                  className={`carousel-slide ${index === 0 ? 'slide-banda' : ''}`}
                   style={{ backgroundImage: `url(${src})` }}
                 />
               ))}
               {/* Duplicate first slide for seamless loop */}
               <div
-                className="carousel-slide"
+                className="carousel-slide slide-banda"
                 style={{ backgroundImage: `url(${heroImages[0]})` }}
               />
             </div>
@@ -138,6 +140,8 @@ export const Home = () => {
       <main className={`page-content ${showHero ? "" : "with-padding"}`}>
         {renderActiveContent()}
       </main>
+
+      <Footer />
     </div>
   );
 };
