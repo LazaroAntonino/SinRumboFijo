@@ -7,9 +7,7 @@ export const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-links">
-          <a href="#" className="footer-link">Política de Privacidad</a>
-          <a href="#" className="footer-link">Términos & Condiciones</a>
-          <a href="#" className="footer-link">Contacto</a>
+          <a href="#" className="footer-link" style={{ marginBottom: '10px', display: 'inline-block' }}>Contacto</a>
         </div>
         
         <div className="footer-socials">

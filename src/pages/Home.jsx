@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import "./Home.css";
 import { HomeContent } from "../components/sections/HomeContent";
 import { MusicSection } from "../components/sections/MusicSection";
-import { GiraSection } from "../components/sections/GiraSection";
+import { GiraSection as ConciertosSection } from "../components/sections/GiraSection";
 import { NewsSection } from "../components/sections/NewsSection";
 import { EntradasSection } from "../components/sections/EntradasSection";
+import { DescripcionSection } from "../components/sections/DescripcionSection";
+// import { EventosSection } from "../components/sections/EventosSection";
+import { DossierSection } from "../components/sections/DossierSection";
+import { MerchSection } from "../components/sections/MerchSection";
+import { ContactoSection } from "../components/sections/ContactoSection";
 import { Footer } from "../components/Footer";
 
 const heroImages = [
@@ -30,11 +35,21 @@ export const Home = () => {
       case "musica":
         return <MusicSection />;
       case "gira":
-        return <GiraSection />;
+        return <ConciertosSection />;
       case "noticias":
         return <NewsSection />;
       case "entradas":
         return <EntradasSection />;
+      case "descripcion":
+        return <DescripcionSection />;
+      // case "eventos":
+      //   return <EventosSection />;
+      case "dossier":
+        return <DossierSection />;
+      case "merch":
+        return <MerchSection />;
+      case "contacto":
+        return <ContactoSection />;
       default:
         return <HomeContent />;
     }
@@ -45,7 +60,10 @@ export const Home = () => {
   return (
     <div className="home-page">
       <nav className="nav">
-        <div className="brand">Sin Rumbo Fijo</div>
+        <div className="brand" style={{display: 'flex', alignItems: 'center', cursor: 'pointer', gap: '0.5rem'}} onClick={() => handleNavClick('home')}>
+          <img src="/images/Logo2_Front.png" alt="Logo Sin Rumbo Fijo" style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#fff', boxShadow: '0 0 6px #eee', marginRight: '0.5rem' }} />
+          Sin Rumbo Fijo
+        </div>
 
         <button
           className={`nav-toggle ${menuOpen ? "open" : ""}`}
@@ -64,6 +82,13 @@ export const Home = () => {
             Inicio
           </button>
           <button
+            className={`nav-link-btn ${activeSection === "descripcion" ? "active" : ""}`}
+            onClick={() => handleNavClick("descripcion")}
+          >
+            Descripción
+          </button>
+          {/* Eventos eliminado, ahora se usa Gira para esto */}
+          <button
             className={`nav-link-btn ${activeSection === "musica" ? "active" : ""}`}
             onClick={() => handleNavClick("musica")}
           >
@@ -73,13 +98,33 @@ export const Home = () => {
             className={`nav-link-btn ${activeSection === "gira" ? "active" : ""}`}
             onClick={() => handleNavClick("gira")}
           >
-            Gira
+            Conciertos
           </button>
+          {/* Noticias oculto
           <button
             className={`nav-link-btn ${activeSection === "noticias" ? "active" : ""}`}
             onClick={() => handleNavClick("noticias")}
           >
             Noticias
+          </button>
+          */}
+          <button
+            className={`nav-link-btn ${activeSection === "dossier" ? "active" : ""}`}
+            onClick={() => handleNavClick("dossier")}
+          >
+            Dossier
+          </button>
+          <button
+            className={`nav-link-btn ${activeSection === "merch" ? "active" : ""}`}
+            onClick={() => handleNavClick("merch")}
+          >
+            Merch
+          </button>
+          <button
+            className={`nav-link-btn ${activeSection === "contacto" ? "active" : ""}`}
+            onClick={() => handleNavClick("contacto")}
+          >
+            Contacto
           </button>
           <button
             className="ticket-button mobile"
@@ -114,7 +159,7 @@ export const Home = () => {
             </div>
             <div className="carousel-overlay" />
             <div className="hero-copy">
-              <p className="eyebrow">Nuevo Álbum · 2026</p>
+              <p className="eyebrow">Nuevo EP</p>
               <h1>
                 Ruido, luces y piel de gallina. <span>Bienvenido al show.</span>
               </h1>
@@ -123,7 +168,7 @@ export const Home = () => {
                 que queman. Descubre el pulso eléctrico de la banda.
               </p>
               <div className="hero-actions">
-                <a className="btn primary" href="#musica">
+                <a className="btn primary" href="https://open.spotify.com/intl-es/artist/6oA9yOYKAPLPXk1t2gr2Mr?si=M_66HtlkRbWW7iXtDJv3KQ" target="_blank" rel="noopener noreferrer">
                   Escuchar ahora
                 </a>
                 <a className="btn ghost" href="#gira">
