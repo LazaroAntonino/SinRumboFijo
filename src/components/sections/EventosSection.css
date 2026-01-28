@@ -1,0 +1,31 @@
+.eventos-section {
+  padding: 2rem 1rem;
+  background: #fafafa;
+  color: #222;
+}
+.eventos-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.eventos-list h3 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #c00;
+}
+.eventos-list ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+.eventos-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1.1rem;
+}
+.eventos-list .fecha {
+  font-weight: bold;
+  color: #222;
+}
+.eventos-list .lugar {
+  color: #555;
+}

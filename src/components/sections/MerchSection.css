@@ -1,0 +1,14 @@
+.section-merch {
+  background: var(--card);
+  color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(247,127,0,0.04);
+  margin: 2rem auto;
+  max-width: 900px;
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+.section-merch h2 {
+  font-family: var(--font-heading);
+  margin-bottom: 1rem;
+}

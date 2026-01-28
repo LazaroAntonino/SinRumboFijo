@@ -15,7 +15,7 @@ export const MusicSection = () => {
       <div className="card-grid">
         <article className="card">
           <div className="card-glow" />
-          <h3>Single: Fuego Interior</h3>
+          <h3>Jaulas Invisibles</h3>
           <p>Beat industrial y coros explosivos. Ideal para arrancar la noche.</p>
           <button className="pill">Reproducir</button>
         </article>
@@ -30,6 +30,12 @@ export const MusicSection = () => {
           <h3>Colaboración</h3>
           <p>Featuring DJ Aurora. Un drop brutal con guitarras distorsionadas.</p>
           <button className="pill">Descubrir</button>
+        </article>
+        <article className="card">
+          <div className="card-glow" />
+          <h3>EP: Historias Caídas</h3>
+          <p>Escucha nuestro primer EP en Spotify y otras plataformas.</p>
+          <a className="pill" href="https://open.spotify.com/album/" target="_blank" rel="noopener noreferrer">Escuchar EP</a>
         </article>
       </div>
     </section>

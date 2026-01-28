@@ -1,0 +1,115 @@
+.galeria-thumb {
+  transition: transform 0.2s;
+}
+.galeria-thumb:hover {
+  transform: scale(1.07);
+  box-shadow: 0 4px 24px var(--neon-orange);
+}
+.carousel-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10,10,12,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.carousel-content {
+  position: relative;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: 0 4px 32px var(--neon-orange);
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-img {
+  max-width: 70vw;
+  max-height: 70vh;
+  border-radius: 12px;
+  box-shadow: 0 2px 24px var(--neon-orange);
+}
+.carousel-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--neon-orange);
+  cursor: pointer;
+  z-index: 2;
+}
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  color: var(--neon-orange);
+  cursor: pointer;
+  z-index: 2;
+  padding: 0 0.5rem;
+}
+.carousel-nav.left {
+  left: 10px;
+}
+.carousel-nav.right {
+  right: 10px;
+}
+.descripcion-section {
+  padding: 2rem 1rem;
+  background: var(--card);
+  color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(247,127,0,0.08);
+  margin: 2rem auto;
+  max-width: 900px;
+}
+.descripcion-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--neon-orange);
+  text-shadow: var(--text-glow);
+  font-family: var(--font-heading);
+}
+.descripcion-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  color: var(--white);
+  font-family: var(--font-body);
+}
+.galeria-fotos {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.galeria-fotos img {
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px var(--neon-orange);
+}
+.ep-info {
+  background: var(--bg-alt);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px var(--neon-orange);
+  color: var(--white);
+}
+.ep-info h3 {
+  margin-top: 0;
+}
+.ep-info .btn.primary {
+  margin-top: 0.5rem;
+}

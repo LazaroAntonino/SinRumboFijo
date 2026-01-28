@@ -246,6 +246,15 @@ a {
 	background-color: #0a0a0c;
 }
 
+/*
+ * Zoom personalizado para la imagen srf.jpg (menos zoom).
+ * Puedes ajustar el valor de background-size para controlar el nivel de zoom.
+ */
+.carousel-slide[style*="srf.jpg"] {
+  background-size: 10% !important; /* Menos zoom */
+  background-position: center !important;
+}
+
 .carousel-slide::after {
 	content: '';
 	position: absolute;

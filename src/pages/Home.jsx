@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import "./Home.css";
 import { HomeContent } from "../components/sections/HomeContent";
 import { MusicSection } from "../components/sections/MusicSection";
-import { GiraSection } from "../components/sections/GiraSection";
+import { GiraSection as ConciertosSection } from "../components/sections/GiraSection";
 import { NewsSection } from "../components/sections/NewsSection";
 import { EntradasSection } from "../components/sections/EntradasSection";
+import { DescripcionSection } from "../components/sections/DescripcionSection";
+// import { EventosSection } from "../components/sections/EventosSection";
+import { DossierSection } from "../components/sections/DossierSection";
+import { MerchSection } from "../components/sections/MerchSection";
+import { ContactoSection } from "../components/sections/ContactoSection";
 import { Footer } from "../components/Footer";
 
 const heroImages = [
-  "/images/banda-srf.png",
-  "https://images.unsplash.com/photo-1507878866276-a947ef722fee?auto=format&fit=crop&w=1600&q=80",
+  "/images/Sesion-SinRumboFijo-hero.jpg", // Nueva imagen (será la primera en el carrusel)
+  "/images/srf.jpg", // Imagen anterior (renombrada)
   "https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=1600&q=80",
   "https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?auto=format&fit=crop&w=1600&q=80",
   "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=1600&q=80",
@@ -30,11 +35,21 @@ export const Home = () => {
       case "musica":
         return <MusicSection />;
       case "gira":
-        return <GiraSection />;
+        return <ConciertosSection />;
       case "noticias":
         return <NewsSection />;
       case "entradas":
         return <EntradasSection />;
+      case "descripcion":
+        return <DescripcionSection />;
+      // case "eventos":
+      //   return <EventosSection />;
+      case "dossier":
+        return <DossierSection />;
+      case "merch":
+        return <MerchSection />;
+      case "contacto":
+        return <ContactoSection />;
       default:
         return <HomeContent />;
     }
@@ -45,7 +60,10 @@ export const Home = () => {
   return (
     <div className="home-page">
       <nav className="nav">
-        <div className="brand">Sin Rumbo Fijo</div>
+        <div className="brand" style={{display: 'flex', alignItems: 'center', cursor: 'pointer', gap: '0.5rem'}} onClick={() => handleNavClick('home')}>
+          <img src="/images/Logo2_Front.png" alt="Logo Sin Rumbo Fijo" style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#fff', boxShadow: '0 0 6px #eee', marginRight: '0.5rem' }} />
+          Sin Rumbo Fijo
+        </div>
 
         <button
           className={`nav-toggle ${menuOpen ? "open" : ""}`}
@@ -64,6 +82,13 @@ export const Home = () => {
             Inicio
           </button>
           <button
+            className={`nav-link-btn ${activeSection === "descripcion" ? "active" : ""}`}
+            onClick={() => handleNavClick("descripcion")}
+          >
+            Descripción
+          </button>
+          {/* Eventos eliminado, ahora se usa Gira para esto */}
+          <button
             className={`nav-link-btn ${activeSection === "musica" ? "active" : ""}`}
             onClick={() => handleNavClick("musica")}
           >
@@ -73,13 +98,33 @@ export const Home = () => {
             className={`nav-link-btn ${activeSection === "gira" ? "active" : ""}`}
             onClick={() => handleNavClick("gira")}
           >
-            Gira
+            Conciertos
           </button>
+          {/* Noticias oculto
           <button
             className={`nav-link-btn ${activeSection === "noticias" ? "active" : ""}`}
             onClick={() => handleNavClick("noticias")}
           >
             Noticias
+          </button>
+          */}
+          <button
+            className={`nav-link-btn ${activeSection === "dossier" ? "active" : ""}`}
+            onClick={() => handleNavClick("dossier")}
+          >
+            Dossier
+          </button>
+          <button
+            className={`nav-link-btn ${activeSection === "merch" ? "active" : ""}`}
+            onClick={() => handleNavClick("merch")}
+          >
+            Merch
+          </button>
+          <button
+            className={`nav-link-btn ${activeSection === "contacto" ? "active" : ""}`}
+            onClick={() => handleNavClick("contacto")}
+          >
+            Contacto
           </button>
           <button
             className="ticket-button mobile"
@@ -104,19 +149,17 @@ export const Home = () => {
               {heroImages.map((src, index) => (
                 <div
                   key={src + index}
-                  className={`carousel-slide ${index === 0 ? 'slide-banda' : ''}`}
+                  className={`carousel-slide${
+                    index === 0 ? ' slide-banda' : ''
+                  }`}
                   style={{ backgroundImage: `url(${src})` }}
                 />
               ))}
-              {/* Duplicate first slide for seamless loop */}
-              <div
-                className="carousel-slide slide-banda"
-                style={{ backgroundImage: `url(${heroImages[0]})` }}
-              />
+              {/* Elimina la duplicación de la primera slide para evitar que se vea dos veces */}
             </div>
             <div className="carousel-overlay" />
             <div className="hero-copy">
-              <p className="eyebrow">Nuevo Álbum · 2026</p>
+              <p className="eyebrow">Nuevo EP</p>
               <h1>
                 Ruido, luces y piel de gallina. <span>Bienvenido al show.</span>
               </h1>
@@ -125,7 +168,7 @@ export const Home = () => {
                 que queman. Descubre el pulso eléctrico de la banda.
               </p>
               <div className="hero-actions">
-                <a className="btn primary" href="#musica">
+                <a className="btn primary" href="https://open.spotify.com/intl-es/artist/6oA9yOYKAPLPXk1t2gr2Mr?si=M_66HtlkRbWW7iXtDJv3KQ" target="_blank" rel="noopener noreferrer">
                   Escuchar ahora
                 </a>
                 <a className="btn ghost" href="#gira">
